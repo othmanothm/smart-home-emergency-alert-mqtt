@@ -1,0 +1,20 @@
+# Secrets / environment files
+.env
+*.env
+telegram_bridge/.env
+
+# PlatformIO build files
+.pio/
+
+# VS Code local settings
+.vscode/
+.vscode/*
+!.vscode/extensions.json
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db

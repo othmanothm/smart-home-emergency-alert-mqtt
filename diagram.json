@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "author": "Othman Othman",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -82.4,
+      "left": -151.38,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -162.9,
+      "left": 138.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 2.4,
+      "left": -228.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -176.4,
+      "left": -53.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -100.8,
+      "left": -58.15,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "esp:27", "pir1:OUT", "green", [ "h0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:5V", "pir1:VCC", "red", [ "h0" ] ],
+
+    [ "esp:15", "dht1:SDA", "green", [ "v0", "h52.84" ] ],
+    [ "esp:3V3", "dht1:VCC", "red", [ "h-23.81", "v-19.2" ] ],
+    [ "esp:GND.2", "dht1:GND", "black", [ "v0", "h81.64" ] ],
+
+    [ "esp:26", "bz1:1", "green", [ "h0" ] ],
+    [ "bz1:2", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "esp:25", "r1:2", "green", [ "v0", "h-33.41" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
